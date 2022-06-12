@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--html:5 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Web's Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+    
+<body class="Main_theme">
+    <h1>Download Web's Data</h1>
+    <br><br>
+    
+    <div style="text-align:center;border-style:none; margin:0px auto;">
+      <h2>請輸入想抓取的資料: </h2>
+        <font color = "red">想抓取圖片請輸入img，想抓取標題名稱可在網頁點擊右鍵檢查，並輸入h1~h5</font><br><br>
+        <form action="{{ url_for('get_type')}}" method="POST" enctype = "multipart/form-data">
+            <input type = 'text' id = "msg" name="type">
+            <button type="submit" id = "get" class = "button1">送出</button>
+        </form>
+      <h2>請輸入網址: </h2>
+        <form action="{{ url_for('get_url')}}" method="POST" enctype = "multipart/form-data">
+            <input type = 'text' id = "msg" name="url">
+            <button type="submit" id = "get" class = "button1">送出</button>
+        </form>
+        
+      <h2>請輸入想下載的資料數量(1~10000): </h2>
+        <form action="{{ url_for('get_num')}}" method="POST" enctype = "multipart/form-data">
+            <input type = 'text' id = "msg" name="num">
+            <button type="submit" id = "get" class = "button1">送出</button>
+        </form>
+        
+    </div>
+    <br><br>
+    <div style = "text-align:center;">
+        {{ show_type_area }}<br>
+        {{ show_url_area }}<br>
+        {{ show_num_area }}<br>
+        <h2>檔案將儲存於images 或 documents 資料夾中，</h2>
+        <h2>確認資料無誤，進行下載?</h2>
+        <form action="{{ url_for('exe')}}" method="POST" enctype = "multipart/form-data">
+            <button type="submit" id = "get" class = "button2">確認下載</button>
+        </form><br>
+        {{ show_status_area }}<br>
+    <br>
+    </div>
+ 
+    
+    
+    
+</body>
+</html>

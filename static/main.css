@@ -1,0 +1,42 @@
+body {
+  font-family: monospace;
+}
+h1 { 
+  text-align:center;
+  font-size: 50px;
+}
+
+.whether_display{
+    text-align:center;
+}
+.inner{
+    display: inline-block;
+}
+.button1 {
+  width: 65px;
+  height: 30px;
+  border: 2px black solid;
+  border-radius: 5px;
+  position: relative;
+  
+  color: #EF7F00;
+  font-weight: 600;
+  font-size: 14px;
+}
+.button2 {
+  width: 90px;
+  height: 30px;
+  border: 2px black solid;
+  border-radius: 5px;
+  position: relative;
+  
+  color: #EF7F00;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.Main_theme {
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-color: #FFFBF0;
+}
