@@ -47,7 +47,7 @@ def exe():
     except:
         return flask.render_template('page.html', show_type_area = "抓取的類型為: " + type, show_url_area = "選擇網址為: " + url, show_num_area = '下載數量為: ' + num, show_status_area = "類型輸入錯誤，請確認輸入的類型為img、h1、h2、h3、h4、h5。")
     if len(results) == 0:#無法進行資料抓取
-        return flask.render_template('page.html', show_type_area = "抓取的類型為: " + type, show_url_area = "選擇網址為: " + url, show_num_area = '下載數量為: ' + num, show_status_area = "很抱歉，此網站存取該資料是用動態加載的方式，無法進行爬蟲，請換個資料或另外選擇網站。")
+        return flask.render_template('page.html', show_type_area = "抓取的類型為: " + type, show_url_area = "選擇網址為: " + url, show_num_area = '下載數量為: ' + num, show_status_area = "很抱歉，此網站存取該資料是用動態加載的方式無法進行爬蟲，或是該網站沒有該屬性的資料，請換個資料或另外選擇網站。")
     if type == "img": #將圖片存到到images中，並且每次下載會創建新資料夾
         img_link = [result.get("src") for result in results]
         if not os.path.exists("images"):
@@ -90,9 +90,11 @@ def exe():
             for line in text:
                 try:
                     file.write( line + '\n')
-                    count += 1
                 except:
-                    pass
+                    continue
+                count += 1
+                if count == a:
+                    break
     return flask.render_template('page.html', show_type_area = "抓取的類型為: " + type, show_url_area = "選擇網址為: " + url, show_num_area = '下載數量為: ' + num, show_status_area = "共找到 " + str(count) + " 筆資料，開始進行下載。")
 
 if __name__ == "__main__":

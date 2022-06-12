@@ -15,7 +15,7 @@
     
     <div style="text-align:center;border-style:none; margin:0px auto;">
       <h2>請輸入想抓取的資料: </h2>
-        <font color = "red">想抓取圖片請輸入img，想抓取標題名稱可在網頁點擊右鍵檢查，並輸入h1~h5</font><br><br>
+        <font color = "red">想抓取圖片請輸入img，想抓取標題名稱可在標題名稱點擊右鍵檢查，並輸入h1~h5、a等等</font><br><br>
         <form action="{{ url_for('get_type')}}" method="POST" enctype = "multipart/form-data">
             <input type = 'text' id = "msg" name="type">
             <button type="submit" id = "get" class = "button1">送出</button>
